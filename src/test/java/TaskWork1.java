@@ -56,7 +56,7 @@ public class TaskWork1 {
         fill(By.xpath("//input[contains(@id,'person_lastName') ]"),"Петров");
         fill(By.xpath("//input[contains(@id,'person_firstName') ]"),"Семен");
         fill(By.xpath("//input[contains(@id,'person_middleName') ]"),"Васильевич");
-        fill(By.xpath("//div[contains(@class,'col-md-6 col-12')]//*[@title = 'Дата рождения']//input[contains(@placeholder,'дд.мм.гггг') ]"),"11092000");
+        fill(By.xpath("//div[contains(@class,'col-md-6 col-12')]//*[@title = 'Дата рождения']//input[contains(@placeholder,'дд.мм.гггг') ]"),"11091980");
 
 
         driver.findElement(By.xpath("//legend[contains(text(),'Паспортные данные')]")).click();
@@ -65,7 +65,7 @@ public class TaskWork1 {
 
         fill(By.xpath("//input[contains(@id,'passportSeries')]"),"6116");
         fill(By.xpath("//input[contains(@id,'passportNumber')]"),"321123");
-        fill(By.xpath("//*[@title = 'Дата выдачи']//input[contains(@placeholder,'дд.мм.гггг') ]"),"17062007");
+        fill(By.xpath("//*[@title = 'Дата выдачи']//input[contains(@placeholder,'дд.мм.гггг') ]"),"11092000");
 
         driver.findElement(By.xpath("//div[contains(@class ,'form-group form-group_label-fill')]//*[contains(text(),'Кем выдан')]")).click();
         fill(By.xpath("//input[contains(@id,'documentIssue')]"),"УВД Москвы");
@@ -73,18 +73,18 @@ public class TaskWork1 {
 
         Assert.assertEquals("Караев" ,driver.findElement(By.xpath("//input[contains(@placeholder,'Фамилия / Surname') ]")).getAttribute("value"));
         Assert.assertEquals("Иван" , driver.findElement(By.xpath("//input[contains(@placeholder,'Имя / Name') ]")).getAttribute("value"));
-        //Assert.assertEquals("10101989", driver.findElement(By.xpath("//div[contains(@class,'col-md-3 col-sm-6 col-12 col-md-4')]//*[@title = 'Дата рождения']//input[contains(@placeholder,'дд.мм.гггг') ]")).getAttribute("value"));
+        Assert.assertEquals("10.10.1989", driver.findElement(By.xpath("//div[contains(@class,'col-md-3 col-sm-6 col-12 col-md-4')]//*[@title = 'Дата рождения']//input[contains(@placeholder,'дд.мм.гггг') ]")).getAttribute("value"));
 
 
         Assert.assertEquals("Петров" , driver.findElement(By.xpath("//input[contains(@id,'person_lastName') ]")).getAttribute("value"));
         Assert.assertEquals("Семен" , driver.findElement(By.xpath("//input[contains(@id,'person_firstName') ]")).getAttribute("value"));
         Assert.assertEquals("Васильевич", driver.findElement(By.xpath("//input[contains(@id,'person_middleName') ]")).getAttribute("value"));
-        //Assert.assertEquals("11092000", driver.findElement(By.xpath("//div[contains(@class,'col-md-6 col-12')]//*[@title = 'Дата рождения']//input[contains(@placeholder,'дд.мм.гггг') ]")).getAttribute("value"));
+        Assert.assertEquals("11.09.1980", driver.findElement(By.xpath("//div[contains(@class,'col-md-6 col-12')]//*[@title = 'Дата рождения']//input[contains(@placeholder,'дд.мм.гггг') ]")).getAttribute("value"));
 
 
         Assert.assertEquals("6116" , driver.findElement(By.xpath("//input[contains(@id,'passportSeries')]")).getAttribute("value"));
         Assert.assertEquals("321123", driver.findElement(By.xpath("//input[contains(@id,'passportNumber')]")).getAttribute("value"));
-        //Assert.assertEquals("17062007", driver.findElement(By.xpath("//*[@title = 'Дата выдачи']//input[contains(@placeholder,'дд.мм.гггг') ]")).getAttribute("value"));
+        Assert.assertEquals("11.09.2000", driver.findElement(By.xpath("//*[@title = 'Дата выдачи']//input[contains(@placeholder,'дд.мм.гггг')]")).getAttribute("value"));
         Assert.assertEquals("УВД Москвы", driver.findElement(By.xpath("//input[contains(@id,'documentIssue')]")).getAttribute("value"));
 
         driver.findElement(By.xpath("//button[contains(@class, 'btn btn-primary page__btn')]")).click();
