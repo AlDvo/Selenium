@@ -45,6 +45,12 @@ public class SendAppPage extends BasePage {
     @FindBy(xpath = "//input[contains(@id,'documentIssue')]")
     WebElement documentIssue;
 
+    @FindBy(xpath = "//div[contains(@role,'alert-form')]")
+    WebElement alert_form;
+
+    @FindBy(xpath = "//*[@title = 'Повтор электронной почты']//span[contains(@class,'invalid-validate form-control__message')]")
+    WebElement invalid_validate;
+
 
     public SendAppPage(WebDriver driver){
         PageFactory.initElements(driver, this);
@@ -123,4 +129,19 @@ public class SendAppPage extends BasePage {
         }
         throw new AssertionError("Поле не объявлено на странице");
     }
+
+    public void clickButton(){
+        driver.findElement(By.xpath("//button[contains(@class, 'btn btn-primary page__btn')]")).click();
+    }
+
+    public String getMistake(String fieldName){
+        switch (fieldName){
+            case  "При заполнении данных произошла ошибка":
+                return alert_form.getAttribute("value");
+            case  "Поле не заполнено.":
+                return invalid_validate.getAttribute("value");
+        }
+        throw new AssertionError("Не отобразилось сообщение об ошибке");
+    }
+
 }

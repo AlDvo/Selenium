@@ -28,20 +28,36 @@ public class TaskWork2 extends BaseTest {
         SendAppPage sendAppPage = new SendAppPage(driver);
         sendAppPage.fillField("Фамилия / Surname" , "Петров");
         sendAppPage.fillField("Имя / Name","Вася");
-        sendAppPage.fillField("Дата рождения","11092000");
+        sendAppPage.fillField("Дата рождения","11.09.2000");
 
 
         sendAppPage.fillField("Фамилия страхователя","Сидоров");
         sendAppPage.fillField("Имя страхователя","Игнат");
         sendAppPage.fillField("Отчество страхователя","Константинович");
-        sendAppPage.fillField("Дата рождения страхователя","11091980");
+        sendAppPage.fillField("Дата рождения страхователя","11.09.1980");
 
         sendAppPage.selectSex("Женский");
 
         sendAppPage.fillField("Серия паспорта","2233");
         sendAppPage.fillField("Номер паспорта","454545");
-        sendAppPage.fillField("Дата выдачи","11092000");
+        sendAppPage.fillField("Дата выдачи","11.09.2000");
         sendAppPage.fillField("Кем выдан","Москва");
 
+        sendAppPage.getFillField("Фамилия / Surname" );
+        sendAppPage.getFillField("Имя / Name");
+        sendAppPage.getFillField("Дата рождения");
+        sendAppPage.getFillField("Фамилия страхователя");
+        sendAppPage.getFillField("Имя страхователя");
+        sendAppPage.getFillField("Отчество страхователя" );
+        sendAppPage.getFillField("Дата рождения страхователя");
+        sendAppPage.getFillField("Серия паспорта");
+        sendAppPage.getFillField("Номер паспорта");
+        sendAppPage.getFillField("Дата выдачи" );
+        sendAppPage.getFillField("Кем выдан" );
+
+        sendAppPage.clickButton();
+
+       sendAppPage.getMistake("При заполнении данных произошла ошибка");
+       sendAppPage.getMistake("Поле не заполнено.");
     }
 }
