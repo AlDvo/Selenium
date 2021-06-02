@@ -11,6 +11,12 @@ public class InsurTravelPage extends BasePage {
     @FindBy(xpath = "//*[contains(@class,'online-card-program')]")
     WebElement recomInsur;
 
+    @FindBy(xpath = "//div[contains(@class,'page-teaser-dict__button')]//span[text()='Оформить онлайн']")
+    WebElement issueButton;
+
+    @FindBy(xpath = "//div[contains(@class,'col-12 centered-col')]//button[text()='Оформить']")
+    WebElement issueDocButton;
+
 
     public InsurTravelPage(WebDriver driver){
         PageFactory.initElements(driver, this);
@@ -18,7 +24,7 @@ public class InsurTravelPage extends BasePage {
     }
 
     public void issue() {
-        driver.findElement(By.xpath("//div[contains(@class,'page-teaser-dict__button')]//span[text()='Оформить онлайн']")).click();
+        issueButton.click();
     }
 
     public void  selectRecomInsur(String menuItem) throws InterruptedException {
@@ -27,7 +33,7 @@ public class InsurTravelPage extends BasePage {
     }
 
     public void issueDoc()  {
-        driver.findElement(By.xpath("//div[contains(@class,'col-12 centered-col')]//button[text()='Оформить']")).click();
+        issueDocButton.click();
     }
 
 }
