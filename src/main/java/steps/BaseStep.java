@@ -1,13 +1,14 @@
+package steps;
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import ru.yandex.qatools.allure.annotations.Attachment;
+import util.TestProperties;
 
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
@@ -16,7 +17,11 @@ import static org.junit.Assert.assertEquals;
 
 
 
-public class BaseTest {
+public class BaseStep {
+    public static WebDriver getDriver() {
+        return driver;
+    }
+
     protected static WebDriver driver;
     protected static String baseUrl;
     public static Properties properties = TestProperties.getInstance().getProperties();
@@ -50,6 +55,10 @@ public class BaseTest {
         driver.quit();
     }
 
+    @Attachment(type = "image/png", value = "Screenshoot")
+    public static byte[] takeScreenshot(){
+        return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+    }
     protected boolean isElementPresent(By by) {
         try {
             driver.findElement(by);
@@ -64,8 +73,8 @@ public class BaseTest {
         driver.findElement(locator).sendKeys(value);
     }
 
-    protected void checkFillField(String value, By locator) {
-        assertEquals(value, driver.findElement(locator).getAttribute("value"));
+    protected void checkFillField(String value, String locator) {
+        assertEquals(value, driver.findElement(By.id(locator)).getAttribute("value"));
     }
 
 }
