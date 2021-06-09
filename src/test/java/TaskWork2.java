@@ -5,8 +5,9 @@ import org.openqa.selenium.WebElement;
 import pages.InsurTravelPage;
 import pages.MainPage;
 import pages.SendAppPage;
+import steps.BaseStep;
 
-public class TaskWork2 extends BaseTest {
+public class TaskWork2 extends BaseStep {
 
     @Test
     public void newInsuranceTest() throws InterruptedException {
