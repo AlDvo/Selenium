@@ -10,7 +10,7 @@ import steps.SenAppPageSteps;
 
 import java.util.HashMap;
 
-public class TaskWork3 extends BaseStep {
+public class TaskWork3_Test extends BaseStep {
 
     @Test
     @Title("Страхование")
@@ -48,7 +48,7 @@ public class TaskWork3 extends BaseStep {
         senAppPageSteps.stepFillFields(testData);
         senAppPageSteps.checkFillFields(testData);
         senAppPageSteps.stepClickButton();
-        senAppPageSteps.stepGetMistake();
-        senAppPageSteps.stepGetMistake();
+        senAppPageSteps.stepGetMistakeOne();
+        senAppPageSteps.stepGetMistakeTwo();
     }
 }

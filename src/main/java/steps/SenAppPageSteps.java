@@ -36,9 +36,12 @@ public class SenAppPageSteps extends BaseStep{
         new SendAppPage(driver).clickButton();
     }
 
-    @Step("Проверка появления сообщения {0}")
-    public void stepGetMistake(){
-        new SendAppPage(driver).getMistake("При заполнении данных произошла ошибка");
+    @Step("Проверка появления сообщения \"При заполнении данных произошла ошибка\"")
+    public void stepGetMistakeOne(){
+        new SendAppPage(driver).getMistake("При заполнении данных произошла ошибка");}
+
+        @Step("Проверка появления сообщения \"Поле не заполнено.\"")
+        public void stepGetMistakeTwo(){
         new SendAppPage(driver).getMistake("Поле не заполнено.");
     }
 
