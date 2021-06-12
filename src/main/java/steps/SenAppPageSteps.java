@@ -8,11 +8,11 @@ import java.util.HashMap;
 
 import static org.junit.Assert.assertTrue;
 
-public class SenAppPageSteps extends BaseStep{
+public class SenAppPageSteps {
 
     @Step("Поле {0} заполняем значением {1}")
     public void stepFillField(String field , String value){
-        new SendAppPage(driver).fillField(field,value);
+        new SendAppPage(BaseStep.getDriver()).fillField(field,value);
     }
 
     @Step("заполняются поля: ")
@@ -22,7 +22,7 @@ public class SenAppPageSteps extends BaseStep{
 
     @Step("Проверяем что поле {0} заполнено значением {1}")
     public void stepGetAttribute(String fieldName, String value){
-        String actual = new SendAppPage(driver).getFillField(fieldName);
+        String actual = new SendAppPage(BaseStep.getDriver()).getFillField(fieldName);
         assertTrue(String.format("Значение поля [%s] равно [%s]. Ожидалось - [%s]", fieldName, actual, value),
                 actual.equals(value));
     }
@@ -33,16 +33,16 @@ public class SenAppPageSteps extends BaseStep{
 
     @Step("Нажали кнопку Оформить")
     public void stepClickButton(){
-        new SendAppPage(driver).clickButton();
+        new SendAppPage(BaseStep.getDriver()).clickButton();
     }
 
     @Step("Проверка появления сообщения \"При заполнении данных произошла ошибка\"")
     public void stepGetMistakeOne(){
-        new SendAppPage(driver).getMistake("При заполнении данных произошла ошибка");}
+        new SendAppPage(BaseStep.getDriver()).getMistake("При заполнении данных произошла ошибка");}
 
         @Step("Проверка появления сообщения \"Поле не заполнено.\"")
         public void stepGetMistakeTwo(){
-        new SendAppPage(driver).getMistake("Поле не заполнено.");
+        new SendAppPage(BaseStep.getDriver()).getMistake("Поле не заполнено.");
     }
 
 
